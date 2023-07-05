@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 /* recommended styles */
-*{
-    /* background-color: #F4F6F8; */
+main{
+    background-color: #F4F6F8;
 }
 :root{
     --very-dark-blue-color: #19202D;
