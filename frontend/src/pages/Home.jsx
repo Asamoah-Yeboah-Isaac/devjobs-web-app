@@ -15,7 +15,6 @@ export const Home = () => {
     };
     fetchedData();
   }, []);
-  console.log(jobData);
   return (
     <main>
       <Navbar />
