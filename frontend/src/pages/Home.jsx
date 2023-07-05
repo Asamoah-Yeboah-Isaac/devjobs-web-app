@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { JobList } from "../components/JobList"
 import FilterSearch from "../components/FilterSearch"
+import { Navbar } from "../components/Navbar"
 
 export const Home = () => {
     const [jobData, setJobData] = useState([])
@@ -17,6 +18,7 @@ export const Home = () => {
     console.log(jobData);
   return (
     <main>
+        <Navbar/>
         <FilterSearch/> 
         <JobList 
         jobData={jobData}/>

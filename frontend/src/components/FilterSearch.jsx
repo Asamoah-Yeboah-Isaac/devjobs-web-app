@@ -35,7 +35,7 @@ const FilterSearch = () => {
         <img
           src={locationLogo}
           alt="locationIcon"
-          className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4"
+          className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" // ade9b23b2cabc1b3cb79c5d6d63eacfa1147338e
         />
       </div>
 
