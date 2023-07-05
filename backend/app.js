@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
+
 const data = require("./data.json");
+
+
+
+// make a request through cors middleware
+const cors = require("cors");
+
 
 app.use(express.json());
 app.use(cors());
