@@ -3,11 +3,11 @@ import { logos } from "../../logos";
 logos;
 export const JobList = ({ jobData }) => {
   return (
-    <section className="grid pt-12 lg:grid-cols-3 md:grid-cols-2 gap-14 lg:gap-x-[0px] lg:pl-24 rounded-md items-center justify-center md:mx-10  cursor-pointer">
+    <section className="grid pt-24 lg:grid-cols-3 md:grid-cols-2 gap-14 lg:gap-x-0 lg:pl-24 rounded-md items-center justify-center md:mx-10 md:pr-10 cursor-pointer">
       {jobData.map((job) => {
         return (
           <div
-            className=" bg-white w-96 pl p-12 md:w-[330px] relative"
+            className=" bg-white w-96  pl p-12  relative"
             key={job.id}
           >
             <span className="text-[16px] font-normal bg-white text-slate-500">
