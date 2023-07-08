@@ -10,7 +10,7 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route element={<Home />} path="/" />
-        <Route element={<JobDesc />} path="/job" />
+        <Route element={<JobDesc />} path="/job/:id" />
         <Route element={<NotFoundPage />} path="*" />
       </Routes>
     </BrowserRouter>
