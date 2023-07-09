@@ -38,8 +38,8 @@ export const JobDesc = ({ isDarkMode }) => {
         >
           <div className="flex flex-col items-center gap-3 -mt-4 md:flex-row md:h-32 md:gap md:gap-6 w-[380px] md:w-[640px]">
             <div
-              className="flex items-center self-start justify-center p-6 mx-4 rounded-lg md:rounded-none md:px-8 md:mx-0  "
-              style={{ backgroundColor: job?.backgroundColor }}
+              className="flex items-center self-start justify-center p-6 mx-36 rounded-lg md:rounded-none md:px-8 md:mx-0 md:h-full  "
+              style={{ backgroundColor: job?.logoBackground }}
             >
               <img
                 className="object-contain h-auto min-w-full "
@@ -176,10 +176,14 @@ export const JobDesc = ({ isDarkMode }) => {
           </ol>
         </div>
 
-        {/* Footer content */}
-        <footer className="bg-white py-8 w-full ">
-          <div className="container mx-auto flex justify-center items-center">
-            <button className="bg-indigo-500 hover:bg-indigo-300 text-white w-[380px] h-12 rounded-md">
+         {/* Footer contents */}
+        <footer className="bg-white py-8 w-full">
+          <div className="container mx-auto flex justify-center items-center md:flex md:justify-between  ">
+            <div className="hidden md:block md:-ml-2  lg:mx-[360px]">
+              <h1 style={{color:'#121721'}} className="font-extrabold">{job?.position}</h1>
+              <span style={{color:'#6E8089'}}>So Digial Inc.</span>
+            </div>
+            <button className="bg-indigo-500 hover:bg-indigo-300 text-white w-[380px] md:w-40 h-12 rounded-md md:-mr-3 lg:mr-[360px]">
               Apply Now
             </button>
           </div>
@@ -189,8 +193,4 @@ export const JobDesc = ({ isDarkMode }) => {
   );
 };
 
-//   <footer >
-//   <div>
-//     <button></button>
-//   </div>
-// </footer>
+
