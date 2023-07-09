@@ -31,7 +31,7 @@ const FilterSearch = () => {
         </div>
       </div>
       {/* filter by location */}
-      <div className="relative sm:hidden md:flex md:-ml-9 lg:ml-0 ">
+      <div className="relative hidden md:flex md:-ml-9 lg:ml-0 ">
         <input
           type="text"
           className="pl-14 pr-4 py-2 lg:w-[350px] text-sm border-r-2 focus:outline-none md:w-[280px] "
@@ -55,7 +55,7 @@ const FilterSearch = () => {
           </div>
           <button
             type="button"
-            className="bg-blue-500 hover:bg-blue-300 text-white sm:px-5 py-2 rounded-md lg:ml-6 md:ml-5 "
+            className="bg-indigo-500 hover:bg-indigo-300 text-white sm:px-5 py-2 rounded-md lg:ml-6 md:ml-5 "
           >
             <span className="lg:pl-1">Search</span>
           </button>

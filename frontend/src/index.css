@@ -38,3 +38,39 @@ main{
     }
   }
   
+  .colorGray{
+    background-color: #DAEC2;
+    /* rgb(157, 174, 194) */
+    /* hsl(212°, 23%, 69%) */
+  }
+  .colorDarkGray{
+    background-color: #6E8089;
+    text-decoration-color: #6E8089;
+    /* rgb(110, 128, 152) */
+    /* hsl(214°, 17%, 51%) */
+  }
+.colorLightGray{
+    background-color: #F4F6F8;
+    /* rgb(244, 246, 248) */
+    /* hsl(210°, 22%, 96%) */
+}
+.colorMidnight{
+    background-color: #121721;
+    /* rgb(18, 23, 33) */
+     /* hsl(220°, 29%, 10%) */
+}
+.colorVeryDarkBlue{
+    background-color: #19202D;
+     /* rgb(25, 32, 45) */
+     /* hsl(219°, 29%, 14%) */
+}
+.colorLightViolet{
+    background-color: #939BF4;
+       /* rgb(147, 155, 244) */
+      /* hsl(235°, 82%, 77%) */
+}
+.colorViolet{
+    background-color: #9E7f66;
+     /* hsl(27°, 22%, 51%)  */
+     /* background-color:rgb(158,127,102) */
+}
