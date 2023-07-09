@@ -3,7 +3,7 @@ import { JobList } from "../components/JobList";
 import FilterSearch from "../components/FilterSearch";
 import { Navbar } from "../components/Navbar";
 
-export const Home = () => {
+export const Home = ({toggleDarkMode, darkMode}) => {
   const [jobData, setJobData] = useState([]);
 
   useEffect(() => {
@@ -17,9 +17,9 @@ export const Home = () => {
   }, []);
   return (
     <main>
-      <Navbar />
+      <Navbar toggleDarkMode = {toggleDarkMode} />
       <FilterSearch />
-      <JobList jobData={jobData} />
+      <JobList jobData={jobData} darkMode={darkMode} />
     </main>
   );
 };

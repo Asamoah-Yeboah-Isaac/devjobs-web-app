@@ -4,7 +4,7 @@ import { logos } from "../../logos";
 import { Navbar } from "../components/Navbar";
 // import "./index.css";
 
-export const JobDesc = ({ isDarkMode }) => {
+export const JobDesc = ({ darkMode }) => {
   const { id } = useParams();
   const [jobData, setJobData] = useState([]);
 
@@ -33,7 +33,7 @@ export const JobDesc = ({ isDarkMode }) => {
         {/* comapny site,company name ,logo */}
         <div
           className={`flex flex-col items-center justify-between -mt-5  rounded-lg md:h-auto md:flex-row md:pt-4 h-[250px]  ${
-            isDarkMode ? " border-b-red-400" : " bg-white"
+            darkMode ? " border-b-red-400" : " bg-white"
           }`}
         >
           <div className="flex flex-col items-center gap-3 -mt-4 md:flex-row md:h-32 md:gap md:gap-6 w-[380px] md:w-[640px]">

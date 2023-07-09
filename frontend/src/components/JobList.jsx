@@ -3,13 +3,19 @@ import { logos } from "../../logos";
 //mapping through data.json to display neccessary details on job card(id,contract,postedAt,position,company,location)
 logos;
 
-export const JobList = ({ jobData }) => {
+export const JobList = ({ jobData, darkMode }) => {
   return (
     <section className="grid pt-24 lg:grid-cols-3 md:grid-cols-2 gap-14 lg:gap-x-0 lg:pl-24 rounded-md items-center justify-center md:mx-10 md:pr-10 cursor-pointer">
       {jobData.map((job) => {
+        // console.log(darkMode);
         return (
           <Link to={`/job/${job.id}`}>
-            <div className=" bg-white w-96  pl p-12  relative" key={job.id}>
+            <div
+              className={` ${
+                darkMode ? " bg-red-600" : " bg-white"
+              } w-96  pl p-12  relative`}
+              key={job.id}
+            >
               <span className="text-[16px] font-normal bg-white text-slate-500">
                 {job.contract} <span className="bg-white ml-1 mr-1">.</span>{" "}
                 {job.postedAt}

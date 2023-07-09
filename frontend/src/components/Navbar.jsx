@@ -3,7 +3,7 @@ import moon from "../assets/desktop/icon-moon.svg";
 import logo from "../assets/desktop/logo.svg";
 import ToggleSwitch from "./ToggleSwitch";
 
-export const Navbar = () => {
+export const Navbar = ({toggleDarkMode}) => {
   return (
     <nav className="nav relative px-12 flex justify-between items-center h-[160px] ">
       <div className="lg:px-24 ">
@@ -19,7 +19,7 @@ export const Navbar = () => {
         </div>
         {/* ToggleSwitch  */}
         <div >
-          <ToggleSwitch />
+          <ToggleSwitch toggleDarkMode = {toggleDarkMode} />
         </div>
         {/* moonlogo  */}
         <div>
