@@ -6,9 +6,15 @@ import LoadMore from "../components/LoadMore";
 
 export const Home = ({ toggleDarkMode, darkMode }) => {
   const [jobData, setJobData] = useState([]);
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [contract, setContract] = useState(false);
+  const [filtering, setFiltering] = useState({
+    company: "",
+    location: "",
+    isFullTime: false,
+  });
+
+  // setting number of jobs to display
+  const [displayJob, setDisplayJob] = useState(12);
+  const [start, setStart] = useState(0);
 
   useEffect(() => {
     //  Fetch the jobs data from the backend
@@ -19,21 +25,54 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
     };
     fetchedData();
   }, []);
-  // console.log(company);
-  const filteredData = jobData.filter((item) => {
-    return company.toLocaleLowerCase() === item.company.toLocaleLowerCase();
+
+  // Filtering funcion
+  const filteredJobs = jobData.filter((item) => {
+    // taking value from user input
+    const { company, location } = filtering;
+    // Initialize isFullTime from the state
+    let { isFullTime } = filtering;
+    const companyRegex = new RegExp(company, "gi");
+    const locationRegex = new RegExp(location, "gi");
+
+    // Check if contract is 'Full Time' and update isFullTime state
+    if (item.contract === "Full Time") {
+      isFullTime = true;
+    }
+
+    // Perform filtering based on title, location, and isFullTime
+    return (
+      (companyRegex.test(item.company) || companyRegex.test(item.position)) &&
+      locationRegex.test(item.location) &&
+      (isFullTime ? item.contract === "Full Time" : true)
+    );
   });
-  // console.log(filteredData);
+  // end of  filtering function
+
+  const loadMoreJobs = () => {
+    // Increase the number of visible jobs and starting index
+    setDisplayJob(jobData.length);
+    start(0);
+  };
+ 
+
   return (
     <main className={`${darkMode ? "  bg-[#121721]" : "bg-[#f4f6f8] "}`}>
       <Navbar toggleDarkMode={toggleDarkMode} />
       <FilterSearch
+        filtering={filtering}
+        setFiltering={setFiltering}
         darkMode={darkMode}
-        company={company}
-        setCompany={setCompany}
       />
-      <JobList jobData={jobData} darkMode={darkMode} />
-      <LoadMore/>
+      <JobList jobData={filteredJobs} darkMode={darkMode} />
+      {displayJob !== jobData.length && filteredJobs.length >= displayJob && (
+        <LoadMore handleClick={loadMoreJobs} />
+      )}
+      {filteredJobs.length === 0 && (
+        <div>
+          <h2>NOT FOUNDS</h2>
+        </div>
+      )}
     </main>
   );
 };

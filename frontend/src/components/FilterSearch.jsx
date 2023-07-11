@@ -2,7 +2,17 @@ import locationLogo from "../assets/desktop/icon-location.svg";
 import Searchicon from "../assets/desktop/icon-search.svg";
 import filtericon from "../assets/mobile/icon-filter.svg";
 
-const FilterSearch = ({ darkMode, company, setCompany }) => {
+const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
+
+  const handleFilterInput = (e) => {
+    setFiltering((prev) => {
+      const { name, value, type, checked } = e.target;
+      return {
+        ...prev,
+        [name]: type === "checkbox" ? checked : value,
+      };
+    });
+  };
   return (
     <div
       className={`flex -mt-7 h-15 lg:ml-12.5  lg:mx-44 gap-0 lg:-mt-10 cursor-pointer `}
@@ -19,8 +29,9 @@ const FilterSearch = ({ darkMode, company, setCompany }) => {
             darkMode ? "  bg-[#121721]" : "bg-white "
           } ${darkMode ? "border-gray-500" : " "}`}
           placeholder="Filter by titles,companies expertise..."
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
+          onChange={handleFilterInput}
+          name="company"
+          value={filtering.title}
         />
         <div
           className={`absolute  right-10 sm:p-4 top-1/2 transform -translate-y-1/2 flex items-center`}
@@ -54,6 +65,9 @@ const FilterSearch = ({ darkMode, company, setCompany }) => {
             darkMode ? " bg-[#121721] " : " bg-white "
           } pl-14 pr-4 py-2 lg:w-[350px] text-sm border-r-2 focus:outline-none md:w-[280px] `}
           placeholder={`Filter by location... `}
+          onChange={handleFilterInput}
+          name="location"
+          value={filtering.location}
         />
         <img
           src={locationLogo}
@@ -70,7 +84,10 @@ const FilterSearch = ({ darkMode, company, setCompany }) => {
         <div
           className={`here flex items-center lg:w-[24rem]  lg:-pl-5 md:w-[300px] md:relative lg:relative lg:mx-0 h-20 md:mx-0 rounded-r-md `}
         >
-          <input type="checkbox" className="w-6 h-6 ml-5 cursor-pointer" />
+          <input type="checkbox" className="w-6 h-6 ml-5 cursor-pointer" 
+           checked={filtering.isFullTime}
+           onChange={handleFilterInput}
+           name="isFullTime"/>
 
           <div
             className={`mr-3 flex justify-between ml-14 font-bold md:items-center md:ml-2  ${
