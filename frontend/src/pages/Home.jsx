@@ -3,7 +3,7 @@ import { JobList } from "../components/JobList";
 import FilterSearch from "../components/FilterSearch";
 import { Navbar } from "../components/Navbar";
 
-export const Home = ({toggleDarkMode, darkMode}) => {
+export const Home = ({ toggleDarkMode, darkMode }) => {
   const [jobData, setJobData] = useState([]);
 
   useEffect(() => {
@@ -15,10 +15,11 @@ export const Home = ({toggleDarkMode, darkMode}) => {
     };
     fetchedData();
   }, []);
+  console.log(darkMode);
   return (
-    <main>
-      <Navbar toggleDarkMode = {toggleDarkMode} />
-      <FilterSearch />
+    <main className={`${darkMode ? "  bg-[#121721]" : "bg-[#f4f6f8] "}`}>
+      <Navbar toggleDarkMode={toggleDarkMode} />
+      <FilterSearch darkMode={darkMode} />
       <JobList jobData={jobData} darkMode={darkMode} />
     </main>
   );

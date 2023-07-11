@@ -4,7 +4,7 @@ import { logos } from "../../logos";
 import { Navbar } from "../components/Navbar";
 // import "./index.css";
 
-export const JobDesc = ({ darkMode }) => {
+export const JobDesc = ({ darkMode, toggleDarkMode }) => {
   const { id } = useParams();
   const [jobData, setJobData] = useState([]);
 
@@ -21,22 +21,21 @@ export const JobDesc = ({ darkMode }) => {
   const job = jobData?.find((jobItem) => jobItem.id === Number(id));
   const logo = logos.find((logo) => logo.id === Number(id));
   // console.log(job);
-  console.log(logo.logo);
+  console.log(darkMode);
 
   // custom background colors are used for styling
   return (
-    <div className="colorLightGray">
-      <Navbar />
+    <div  className={`${darkMode ? "  bg-[#121721]" : "bg-[#f4f6f8] "}`}>
+      <Navbar toggleDarkMode = {toggleDarkMode} />
       <section
-        className={`colorLightGray  relative z-50 flex flex-col items-center  justify-center gap-5  md:gap-10`}
+        className={` relative z-50 flex flex-col items-center  justify-center gap-5  md:gap-10  "
+        }`}
       >
         {/* comapny site,company name ,logo */}
         <div
-          className={`flex flex-col items-center justify-between -mt-5  rounded-lg md:h-auto md:flex-row md:pt-4 h-[250px]  ${
-            darkMode ? " border-b-red-400" : " bg-white"
-          }`}
+          className={`flex flex-col items-center justify-between -mt-5  rounded-lg md:h-auto md:flex-row md:pt-4 h-[250px] ${darkMode? "bg-[#19202d]" : "bg-white" }`}
         >
-          <div className="flex flex-col items-center gap-3 -mt-4 md:flex-row md:h-32 md:gap md:gap-6 w-[380px] md:w-[640px]">
+          <div className="flex flex-col items-center gap-3 -mt-4 md:flex-row md:h-32 md:gap md:gap-6 w-[380px] md:w-[640px] ">
             <div
               className="flex items-center self-start justify-center p-6 mx-36 rounded-lg md:rounded-none md:px-8 md:mx-0 md:h-full  "
               style={{ backgroundColor: job?.logoBackground }}
@@ -50,11 +49,7 @@ export const JobDesc = ({ darkMode }) => {
 
             {/* comapany site styles  */}
             <div className="flex flex-col items-center justify-center gap-1 ">
-              <p
-                className={`text-lg font-extrabold tracking-wider md:text-lg${
-                  isDarkMode ? " text-white" : " text-black"
-                }`}
-              >
+              <p className={`text-lg font-extrabold tracking-wider md:text-lg ${darkMode? "text-white" : "text-[#6e8089]"}`}>
                 {job?.company}
               </p>
               <p className="font-medium " style={{ color: "#6E8089" }}>
@@ -66,11 +61,11 @@ export const JobDesc = ({ darkMode }) => {
           {/* company site  */}
           <p
             className={`p-3 mb-6 ml-3 text-sm font-semibold tracking-wider  md:mr-6 rounded-md${
-              isDarkMode
+              darkMode
                 ? " bg-gray-800 hover:bg-gray-700 hover:text-white"
                 : " colorLightGray  hover:bg-gray-200 "
-            }`}
-            style={{ color: "#939BF4" }}
+            } ${darkMode? "text-white" : "text-black"}`}
+           
           >
             <Link to={job?.website}> Company Site</Link>
           </p>
@@ -78,22 +73,20 @@ export const JobDesc = ({ darkMode }) => {
 
         {/* postedAt,contract,apply, description and requirement of job  */}
         <div
-          className={`p-8 w-[380px] md:w-[790px]  ${
-            isDarkMode ? " bg-red-500" : " bg-white"
-          }`}
+          className={`p-8 w-[380px] md:w-[790px]  ${darkMode? "bg-[#19202d]" : "bg-white"}`}
         >
           <div className="flex flex-col justify-between gap-10 md:gap-0 md:items-center md:flex-row  ">
             <div className="flex flex-col gap-2">
-              <div className="flex gap-2 font-normal leading-4 ">
+              <div className={`flex gap-2 font-normal leading-4 text-[#6e8089]`}>
                 <p>{job?.postedAt}</p> <p>.</p>
                 <p>{job?.contract}</p>
               </div>
 
               <p
-                className={`text-lg font-bold leading-6 md:text-2xl   ${
-                  isDarkMode ? " text-white " : " text-blue-900 "
+                className={`text-lg font-bold leading-6 md:text-2xl  ${
+                  darkMode ? " text-white " : ""
                 }`}
-                style={{ color: "#121721" }}
+                
               >
                 {job?.position}
               </p>
@@ -118,12 +111,12 @@ export const JobDesc = ({ darkMode }) => {
           </p>
           <h3
             className={`pb-4 text-lg font-semibold tracking-wider ${
-              isDarkMode ? " text-white" : " text-black"
+              darkMode ? " text-white" : " text-black"
             }`}
           >
             Requirements
           </h3>
-          <p className="pb-4 leading-7 tracking-wide text-gray-700">
+          <p className="pb-4 leading-7 tracking-wide" style={{ color: "#6E8089" }}>
             {job?.requirements.content}
           </p>
 
@@ -147,7 +140,7 @@ export const JobDesc = ({ darkMode }) => {
 
           <h4
             className={`py-6 text-lg font-semibold tracking-wider${
-              isDarkMode ? " text-white" : " text-black"
+              darkMode ? " text-white" : " text-black"
             }`}
           >
             What You Will Do
@@ -176,21 +169,23 @@ export const JobDesc = ({ darkMode }) => {
           </ol>
         </div>
 
-         {/* Footer contents */}
-        <footer className="bg-white py-8 w-full">
+        {/* Footer contents */}
+        <footer className={`py-8 w-full ${darkMode ? "bg-[#19202d]" : "bg-white"}`}>
           <div className="container mx-auto flex justify-center items-center md:flex md:justify-between  ">
             <div className="hidden md:block md:-ml-2  lg:mx-[360px]">
-              <h1 style={{color:'#121721'}} className="font-extrabold">{job?.position}</h1>
-              <span style={{color:'#6E8089'}}>So Digial Inc.</span>
+              <h1 className={`font-extrabold  ${darkMode ? "text-white" : " "}`}>
+                {job?.position}
+              </h1>
+              <span style={{ color: "#6E8089" }}>So Digial Inc.</span>
             </div>
-            <button className="bg-indigo-500 hover:bg-indigo-300 text-white w-[380px] md:w-40 h-12 rounded-md md:-mr-3 lg:mr-[360px]">
-              Apply Now
-            </button>
+            <Link to={`https://example.com/scoot/apply`}>
+              <button className={`bg-indigo-500 hover:bg-indigo-300 text-white w-[380px] md:w-40 h-12 rounded-md md:-mr-3 lg:mr-[360px]`}>
+                Apply Now
+              </button>
+            </Link>
           </div>
         </footer>
       </section>
     </div>
   );
 };
-
-

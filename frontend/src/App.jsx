@@ -11,21 +11,19 @@ import { useState , useEffect} from "react";
 function App() {
   //Darkmode set up
   // getting mode of machine 
-  const [darkMode, setDarkMode] = useState(localStorage.getItem('mode') === 'dark');
-  // sync mode with screen 
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("mode") === "dark"
+  );
+
   useEffect(() => {
-    const saveModeToLocalStorage = () => {
-      localStorage.setItem("mode", darkMode ? "dark" : "light");
-    };
-  
-    saveModeToLocalStorage();
+    // Update value of mode = changes
+    localStorage.setItem("mode", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode((modeNow) => !modeNow);
+    setDarkMode((prevMode) => !prevMode);
   };
 
-  // prevent change of state after reloading or refreshing 
   useEffect(() => {
     const rootElement = document.documentElement;
     if (darkMode) {
@@ -36,16 +34,15 @@ function App() {
   }, [darkMode]);
 
 
-
   return (
-    <BrowserRouter>
-      {/* <Navbar /> */}
-      <Routes>
-        <Route element={<Home toggleDarkMode = {toggleDarkMode} darkMode={darkMode} />} path="/" />
-        <Route element={<JobDesc darkMode={darkMode} />} path="/job/:id" />
-        <Route element={<NotFoundPage />} path="*" />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        {/* <Navbar /> */}
+        <Routes>
+          <Route element={<Home toggleDarkMode = {toggleDarkMode} darkMode={darkMode} />} path="/" />
+          <Route element={<JobDesc darkMode={darkMode} toggleDarkMode = {toggleDarkMode}/>} path="/job/:id" />
+          <Route element={<NotFoundPage />} path="*" />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
