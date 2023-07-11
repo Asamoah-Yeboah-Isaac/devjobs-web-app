@@ -1,34 +1,29 @@
-import  { useState } from 'react';
+import { useState } from "react";
 
-const ToggleSwitch = () => {
-  const [isChecked, setIsChecked] = useState(false);
+const ToggleSwitch = ({ toggleDarkMode }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
-    <label htmlFor="toggle" className="flex items-center cursor-pointer">
-      <div className="relative">
-        <input
-          type="checkbox"
-          id="toggle"
-          className="sr-only"
-          checked={isChecked}
-          onChange={handleToggle}
-        />
+    <div onClick={toggleDarkMode}>
+      <button
+        className={`w-14 h-6 rounded-full relative transition-colors duration-300  bg-white 
+    `}
+        onClick={toggleMode}
+        aria-label="navbar toggler"
+      >
         <div
-          className={`block ${
-            isChecked ? 'bg-white' : 'bg-white'
-          } w-10 h-6 rounded-full`}
+          className={`w-4 h-4 rounded-full absolute top-1 transform hover:bg-indigo-300 ${
+            isDarkMode
+              ? "translate-x-9  bg-indigo-500"
+              : "translate-x-1  bg-indigo-500"
+          } transition-transform duration-300`}
         ></div>
-        <div
-          className={`dot absolute left-1 top-1 bg-blue-600 w-4 h-4 rounded-full transition hover:bg-blue-300 ${
-            isChecked ? 'transform translate-x-4' : ''
-          }`}
-        ></div>
-      </div>
-    </label>
+      </button>
+    </div>
   );
 };
 
