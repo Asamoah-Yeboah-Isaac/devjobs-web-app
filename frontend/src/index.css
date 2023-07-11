@@ -1,3 +1,95 @@
+/* recommended font  */
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* recommended styles */
+/* main {
+  background-color: #f4f6f8;
+} */
+* {
+  font-family: "Kumbh Sans", sans-serif;
+  box-sizing: border-box;
+}
+:root {
+  --colorGray: #9DAEC2;
+  --colorDarkGray: #6e8089;
+  --colorLightGray: #f4f6f8;
+  --colorMidnight: #121721;
+  --colorVeryDarkBlue: #19202d;
+  --colorLightViolet: #939bf4;
+  --colorViolet: #5964E0
+}
+
+/* body {
+    background-color: var(--colorLightGray);
+  }
+  
+body.dark-mode {
+    background-color: var(--colorMidnight);
+  } */
+
+
+/* for desktop screen */
+.nav {
+  background-image: url("./assets/desktop/bg-pattern-header.svg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  /* width: 1440px; */
+  /* height: 160px; */
+  flex-shrink: 0;
+  border-radius: 0px px 100px 0px;
+  border: 0px solid #979797;
+  position: relative;
+}
+/* For Tablets  screen*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .nav {
+    background-image: url("./assets/tablet/bg-pattern-header.svg");
+  }
+}
+
+/* For Mobile Phones screen */
+@media only screen and (max-width: 767px) {
+  .nav {
+    background-image: url("./assets/mobile/bg-pattern-header.svg");
+  }
+}
+
+.colorGray {
+  background-color: #9DAEC2;
+  /* rgb(157, 174, 194) */
+  /* hsl(212°, 23%, 69%) */
+}
+.colorDarkGray {
+  background-color: #6e8089;
+  text-decoration-color: #6e8089;
+  /* rgb(110, 128, 152) */
+  /* hsl(214°, 17%, 51%) */
+}
+.colorLightGray {
+  background-color: #f4f6f8;
+  /* rgb(244, 246, 248) */
+  /* hsl(210°, 22%, 96%) */
+}
+.colorMidnight {
+  background-color: #121721;
+  /* rgb(18, 23, 33) */
+  /* hsl(220°, 29%, 10%) */
+}
+.colorVeryDarkBlue {
+  background-color: #19202d;
+  /* rgb(25, 32, 45) */
+  /* hsl(219°, 29%, 14%) */
+}
+.colorLightViolet {
+  background-color: #939bf4;
+  /* rgb(147, 155, 244) */
+  /* hsl(235°, 82%, 77%) */
+}
+.colorViolet {
+  background-color: #5964E0;
+  /* hsl(27°, 22%, 51%)  */
+  /* background-color:rgb(158,127,102) */
+}
