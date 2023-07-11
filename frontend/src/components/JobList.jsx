@@ -8,9 +8,12 @@ logos;
 // } `}
 
 export const JobList = ({ jobData, darkMode }) => {
+  
+
+
   return (
      <div >
-      <section className="grid pt-24 lg:grid-cols-3 md:grid-cols-2 gap-14 lg:gap-x-0 lg:pl-24 rounded-md items-center justify-center md:mx-10 md:pr-10 cursor-pointer">
+      <section className="grid pt-24 lg:grid-cols-3 md:grid-cols-2 gap-12 lg:gap-x-0 lg:pl-24 rounded-md items-center justify-center md:mx-10 md:pr-10 mb-5 cursor-pointer">
         {jobData.map((job) => {
           // console.log(darkMode);
           return (
