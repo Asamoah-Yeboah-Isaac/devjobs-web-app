@@ -11,15 +11,16 @@
 * {
   font-family: "Kumbh Sans", sans-serif;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 :root {
-  --colorGray: #9DAEC2;
+  --colorGray: #9daec2;
   --colorDarkGray: #6e8089;
   --colorLightGray: #f4f6f8;
   --colorMidnight: #121721;
   --colorVeryDarkBlue: #19202d;
   --colorLightViolet: #939bf4;
-  --colorViolet: #5964E0
+  --colorViolet: #5964e0;
 }
 
 /* body {
@@ -29,7 +30,6 @@
 body.dark-mode {
     background-color: var(--colorMidnight);
   } */
-
 
 /* for desktop screen */
 .nav {
@@ -58,7 +58,7 @@ body.dark-mode {
 }
 
 .colorGray {
-  background-color: #9DAEC2;
+  background-color: #9daec2;
   /* rgb(157, 174, 194) */
   /* hsl(212°, 23%, 69%) */
 }
@@ -89,7 +89,7 @@ body.dark-mode {
   /* hsl(235°, 82%, 77%) */
 }
 .colorViolet {
-  background-color: #5964E0;
+  background-color: #5964e0;
   /* hsl(27°, 22%, 51%)  */
   /* background-color:rgb(158,127,102) */
 }

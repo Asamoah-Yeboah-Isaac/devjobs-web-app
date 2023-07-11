@@ -76,7 +76,7 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
               darkMode ? "text-white" : " "
             }`}
           >
-            Not Found
+            there is no job
           </h2>
         </div>
       )}

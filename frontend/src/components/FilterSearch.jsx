@@ -37,7 +37,7 @@ const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
           className={`lg:relative md:pl-[52px] lg:pl-[80px] pl-10 lg:-ml-10 pr-2 py-2 text-sm md:border-r-2  lg:border-r-2  focus:outline-none h-20 w-96 lg:w-[520px] lg:rounded-l-md md:rounded-l-md rounded-md md:w-56 lg:rounded-r-none md:rounded-r-none  ${
             darkMode ? "  bg-[#19202d]" : "bg-white "
           } ${darkMode ? "border-gray-500" : " "}`}
-          placeholder="Filter by titles,companies expertise..."
+          placeholder="Filter by titles,companies..."
           onChange={handleFilterInput}
           name="company"
           value={filtering.title}
