@@ -70,7 +70,7 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
       )}
       {filteredJobs.length === 0 && (
         <div>
-          <h2>NOT FOUNDS</h2>
+          <h2 className={`font-extrabold text-4xl flex justify-center ${darkMode? "text-white" : " "}`}>Not Found</h2>
         </div>
       )}
     </main>
