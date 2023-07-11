@@ -19,7 +19,9 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
   useEffect(() => {
     //  Fetch the jobs data from the backend
     const fetchedData = async () => {
-      const response = await fetch("http://localhost:8000/api/devjobs");
+      const response = await fetch(
+        "https://devjobs-4akw.onrender.com/api/devjobs"
+      );
       const data = await response.json();
       setJobData(data);
     };
@@ -54,7 +56,6 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
     setDisplayJob(jobData.length);
     start(0);
   };
- 
 
   return (
     <main className={`${darkMode ? "  bg-[#121721]" : "bg-[#f4f6f8] "}`}>
@@ -70,7 +71,13 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
       )}
       {filteredJobs.length === 0 && (
         <div>
-          <h2 className={`font-extrabold text-4xl flex justify-center ${darkMode? "text-white" : " "}`}>Not Found</h2>
+          <h2
+            className={`font-extrabold text-4xl flex justify-center ${
+              darkMode ? "text-white" : " "
+            }`}
+          >
+            Not Found
+          </h2>
         </div>
       )}
     </main>

@@ -11,7 +11,9 @@ export const JobDesc = ({ darkMode, toggleDarkMode }) => {
   useEffect(() => {
     //  Fetch the jobs data from the backend
     const fetchedData = async () => {
-      const response = await fetch("http://localhost:8000/api/devjobs");
+      const response = await fetch(
+        "https://devjobs-4akw.onrender.com/api/devjobs"
+      );
       const data = await response.json();
       setJobData(data);
     };
