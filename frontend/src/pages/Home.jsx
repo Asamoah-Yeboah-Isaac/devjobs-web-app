@@ -69,14 +69,14 @@ export const Home = ({ toggleDarkMode, darkMode }) => {
       {displayJob !== jobData.length && filteredJobs.length >= displayJob && (
         <LoadMore handleClick={loadMoreJobs} />
       )}
-      {filteredJobs.length === 0 && (
+      {filteredJobs.length === 0 && jobData.length > 0 && (
         <div>
           <h2
             className={`font-extrabold text-4xl flex justify-center ${
-              darkMode ? "text-white" : " "
+              darkMode ? "text-white" : ""
             }`}
           >
-            there is no job
+            There are no jobs matching for this match.
           </h2>
         </div>
       )}
