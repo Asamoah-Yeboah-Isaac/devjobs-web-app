@@ -4,7 +4,6 @@ import Searchicon from "../assets/desktop/icon-search.svg";
 import filtericon from "../assets/mobile/icon-filter.svg";
 import MobileFilter from "./MobileFilter";
 
-
 const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
   const [showFilter, setShowFilter] = useState(false);
 
@@ -20,12 +19,16 @@ const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
   return (
     <div
       className={`flex -mt-7 h-15 lg:ml-12.5  lg:mx-44 gap-0 lg:-mt-10 cursor-pointer `}
-    >  {showFilter && (
-      <MobileFilter  locationIcon={locationLogo}
+    >
+      {" "}
+      {showFilter && (
+        <MobileFilter
+          locationIcon={locationLogo}
           handleFilterInput={handleFilterInput}
           filtering={filtering}
-          darkMode={darkMode}/>)}
-
+          darkMode={darkMode}
+        />
+      )}
       {/* filter by titles,companies...  */}
       <div
         className={`relative mx-12 lg:mx-0 md:mx-9 ${
@@ -34,7 +37,7 @@ const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
       >
         <input
           type="text"
-          className={`lg:relative md:pl-[52px] lg:pl-[80px] pl-10 lg:-ml-10 -ml-10 pr-2 py-2 text-sm md:border-r-2  lg:border-r-2  focus:outline-none h-20 w-96  lg:mr-0 lg:w-[520px] lg:rounded-l-md md:rounded-l-md rounded-md md:w-56 lg:rounded-r-none md:rounded-r-none  ${
+          className={`lg:relative md:pl-[52px] lg:pl-[80px] pl-10 lg:-ml-10 md:ml-0 -ml-10 pr-2 py-2 text-sm md:border-r-2  lg:border-r-2  focus:outline-none h-20 w-96  lg:mr-0 lg:w-[520px] lg:rounded-l-md md:rounded-l-md rounded-md md:w-56 lg:rounded-r-none md:rounded-r-none  ${
             darkMode ? "  bg-[#19202d]" : "bg-white "
           } ${darkMode ? "border-gray-500" : " "}`}
           placeholder="Filter by titles,companies..."
@@ -49,7 +52,7 @@ const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
             src={filtericon}
             alt="filterIcon"
             className={`h-4 w-4 mr-2 md:hidden `}
-            onClick={()=>setShowFilter((prev) => !prev)}
+            onClick={() => setShowFilter((prev) => !prev)}
           />
           <img //lg search image
             src={Searchicon}
@@ -94,10 +97,13 @@ const FilterSearch = ({ darkMode, filtering, setFiltering }) => {
         <div
           className={`here flex items-center lg:w-[24rem]  lg:-pl-5 md:w-[300px] md:relative lg:relative lg:mx-0 h-20 md:mx-0 rounded-r-md `}
         >
-          <input type="checkbox" className="w-6 h-6 ml-5 cursor-pointer" 
-           checked={filtering.isFullTime}
-           onChange={handleFilterInput}
-           name="isFullTime"/>
+          <input
+            type="checkbox"
+            className="w-6 h-6 ml-5 cursor-pointer"
+            checked={filtering.isFullTime}
+            onChange={handleFilterInput}
+            name="isFullTime"
+          />
 
           <div
             className={`mr-3 flex justify-between ml-14 font-bold md:items-center md:ml-2  ${
