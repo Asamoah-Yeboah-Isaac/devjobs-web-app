@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   //Darkmode set up
-  // getting mode of machine
+  // getting color theme of machine
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("mode") === "dark"
   );
