@@ -43,7 +43,7 @@ export const JobDesc = ({ darkMode, toggleDarkMode }) => {
               style={{ backgroundColor: job?.logoBackground }}
             >
               <img
-                className="object-contain h-auto min-w-full "
+                className="object-contain h-auto w-16 "
                 src={logo.logo}
                 alt={` The logo of ${job?.company}`}
               />

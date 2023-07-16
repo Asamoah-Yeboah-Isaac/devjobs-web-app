@@ -70,7 +70,7 @@ export const JobList = ({ jobData, darkMode }) => {
                           key={logo.id - index}
                           src={logo.logo}
                           alt={job.company}
-                          className=" flex justify-center items-center p-3"
+                          className=" flex justify-center items-center p-3 "
                         />
                       );
                     }
