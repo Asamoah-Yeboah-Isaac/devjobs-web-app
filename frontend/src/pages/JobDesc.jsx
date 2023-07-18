@@ -157,15 +157,15 @@ export const JobDesc = ({ darkMode, toggleDarkMode }) => {
             What You Will Do
           </h4>
           <p
-            className="pb-4 leading-7 tracking-wide"
+            className="pb-4 leading-7 tracking-wide "
             style={{ color: "#6E8089" }}
           >
             {job?.role.content}
           </p>
-          <ol className="font-bold text-indigo-500">
+          <ol className="font-bold text-indigo-500 ">
             {job?.role.items.map((item, index) => (
               <li
-                className="pl-4 ml-4 leading-7 list-decimal "
+                className="pl-4 ml-4 leading-7 list-decimal"
                 key={`${item}-${index}`}
               >
                 <span

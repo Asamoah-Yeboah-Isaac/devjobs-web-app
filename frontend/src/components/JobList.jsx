@@ -60,7 +60,7 @@ export const JobList = ({ jobData, darkMode }) => {
                 </p>{" "}
                 <div
                   style={{ backgroundColor: job.logoBackground }}
-                  className={` h-10 w-10 absolute  -top-7 rounded-md`}
+                  className={` h-10 w-10 absolute  -top-7 rounded-md `}
                 >
                   {/* mapping through logos to display job logos  */}
                   {logos.map((logo, index) => {

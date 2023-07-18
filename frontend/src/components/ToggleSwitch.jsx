@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ToggleSwitch = ({ toggleDarkMode }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // persisting the toggle switch/darkmodeSwitch by storing and retrieving states from local storage
+  useEffect(() => {
+    const storeDarkMode = localStorage.getItem("darkMode");
+    if (storeDarkMode) {
+      setIsDarkMode(JSON.parse(storeDarkMode));
+    }
+  }, []);
+
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
+    localStorage.setItem("darkMode", JSON.stringify(!isDarkMode));
   };
 
   return (
